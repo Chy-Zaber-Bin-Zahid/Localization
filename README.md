@@ -1,41 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+Next.js Internationalization (i18n) Demo
+A simple yet complete demonstration of how to implement multi-language support in a Next.js application using the Pages Router and the next-intl library. This project is configured to support English (en), German (de), and Italian (it).
 
-## Getting Started
+✨ Features
+Multi-Language Support: Fully translated content for English, German, and Italian.
 
-First, run the development server:
+Static Site Generation (SSG): Uses getStaticProps to pre-render pages in all supported languages for optimal performance.
 
-```bash
+URL-Based Routing: Clean, SEO-friendly URLs for each language (e.g., /en, /de, /it).
+
+Dynamic Language Switcher: A simple and effective component to switch between languages on the fly.
+
+Modern Tech Stack: Built with Next.js, React, TypeScript, and styled with Tailwind CSS.
+
+🚀 Getting Started
+Follow these steps to get the project up and running on your local machine.
+
+Prerequisites
+Node.js (version 18.18.0 or later)
+
+npm, yarn, or pnpm
+
+Quick Start Guide
+Clone the Repository
+```
+git clone [https://github.com/Chy-Zaber-Bin-Zahid/Localization.git](https://github.com/Chy-Zaber-Bin-Zahid/Localization.git)
+```
+Navigate to the Project Directory
+```
+cd Localization
+```
+Install Dependencies
+```
+npm install
+```
+Run the Development Server
+```
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+Once the server is running, open your browser and navigate to http://localhost:3000.
+
+🌍 How to Use the Localization
+You can switch between languages in two ways:
+
+Using the Language Switcher: Click on EN, DE, or IT at the top of the page.
+
+Navigating Directly via URL:
+```
+English: http://localhost:3000/en
+
+German: http://localhost:3000/de
+
+Italian: http://localhost:3000/it
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🛠️ Project Structure Overview
+Here are the key files and directories related to the localization setup:
+```
+.
+├── /components/
+│   └── LanguageSwitcher.tsx   # The UI component for switching locales.
+├── /messages/
+│   ├── de.json                # German translation strings.
+│   ├── en.json                # English translation strings.
+│   └── it.json                # Italian translation strings.
+├── /pages/
+│   ├── _app.tsx               # Wraps the app with NextIntlClientProvider.
+│   ├── _document.tsx          # Sets the lang attribute on the HTML tag.
+│   └── index.tsx              # Main page, uses getStaticProps to load messages.
+└── next.config.ts             # Configures Next.js i18n routing.
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+📜 Available Scripts
+```
+npm run dev: Starts the development server with Turbopack.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+npm run build: Creates a production-ready build of the application.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+npm run start: Starts the production server.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
-# Localization
+npm run lint: Runs ESLint to analyze the code for potential errors.
+```
