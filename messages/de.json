@@ -1,0 +1,17 @@
+{
+  "Index": {
+    "title": "Hallo, Welt!",
+    "getStarted": "Beginnen Sie mit der Bearbeitung von <code>pages/index.tsx</code>.",
+    "saveChanges": "Speichern und sehen Sie Ihre Änderungen sofort.",
+    "deployButton": "Jetzt bereitstellen",
+    "docsButton": "Lesen Sie unsere Doks",
+    "learnLink": "Lernen",
+    "examplesLink": "Beispiele",
+    "goToNextLink": "Gehen Sie zu nextjs.org →",
+    "nextLogoAlt": "Next.js-Logo",
+    "vercelLogoAlt": "Vercel-Logo",
+    "fileIconAlt": "Datei-Symbol",
+    "windowIconAlt": "Fenster-Symbol",
+    "globeIconAlt": "Globus-Symbol"
+  }
+}

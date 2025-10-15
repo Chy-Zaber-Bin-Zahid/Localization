@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
+import {useTranslations} from 'next-intl';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,29 +14,33 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home() {
+  const t = useTranslations('Index');
+
   return (
     <div
-      className={`${geistSans.className} ${geistMono.className} font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20`}
+      className={`${geistSans.className} ${geistMono.className} font-sans grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20`}
     >
+      <header className="row-start-1">
+        <LanguageSwitcher />
+      </header>
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+        <h1 className="text-4xl font-bold">{t('title')}</h1>
         <Image
           className="dark:invert"
           src="/next.svg"
-          alt="Next.js logo"
+          alt={t('nextLogoAlt')}
           width={180}
           height={38}
           priority
         />
         <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
           <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              pages/index.tsx
-            </code>
-            .
+            {t.rich('getStarted', {
+              code: (chunks) => <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">{chunks}</code>
+            })}
           </li>
           <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
+            {t('saveChanges')}
           </li>
         </ol>
         <div className="flex gap-4 items-center flex-col sm:flex-row">
@@ -47,11 +53,11 @@ export default function Home() {
             <Image
               className="dark:invert"
               src="/vercel.svg"
-              alt="Vercel logomark"
+              alt={t('vercelLogoAlt')}
               width={20}
               height={20}
             />
-            Deploy now
+            {t('deployButton')}
           </a>
           <a
             className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
@@ -59,7 +65,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Read our docs
+            {t('docsButton')}
           </a>
         </div>
       </main>
@@ -73,11 +79,11 @@ export default function Home() {
           <Image
             aria-hidden
             src="/file.svg"
-            alt="File icon"
+            alt={t('fileIconAlt')}
             width={16}
             height={16}
           />
-          Learn
+          {t('learnLink')}
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
@@ -88,11 +94,11 @@ export default function Home() {
           <Image
             aria-hidden
             src="/window.svg"
-            alt="Window icon"
+            alt={t('windowIconAlt')}
             width={16}
             height={16}
           />
-          Examples
+          {t('examplesLink')}
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
@@ -103,13 +109,21 @@ export default function Home() {
           <Image
             aria-hidden
             src="/globe.svg"
-            alt="Globe icon"
+            alt={t('globeIconAlt')}
             width={16}
             height={16}
           />
-          Go to nextjs.org →
+          {t('goToNextLink')}
         </a>
       </footer>
     </div>
   );
+}
+
+export async function getStaticProps({locale}: {locale: string}) {
+  return {
+    props: {
+      messages: (await import(`../messages/${locale}.json`)).default
+    }
+  };
 }

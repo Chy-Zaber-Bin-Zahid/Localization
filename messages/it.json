@@ -1,0 +1,17 @@
+{
+  "Index": {
+    "title": "Ciao, mondo!",
+    "getStarted": "Inizia modificando <code>pages/index.tsx</code>.",
+    "saveChanges": "Salva e vedi subito le tue modifiche.",
+    "deployButton": "Distribuisci ora",
+    "docsButton": "Leggi la nostra",
+    "learnLink": "Impara",
+    "examplesLink": "Esempi",
+    "goToNextLink": "Vai su nextjs.org →",
+    "nextLogoAlt": "Logo Next.js",
+    "vercelLogoAlt": "Logo Vercel",
+    "fileIconAlt": "Icona del file",
+    "windowIconAlt": "Icona della finestra",
+    "globeIconAlt": "Icona del globo"
+  }
+}
