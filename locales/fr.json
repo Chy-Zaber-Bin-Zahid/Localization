@@ -1,0 +1,5 @@
+{
+  "welcome": "Bienvenue sur mPeople",
+  "greeting": "Bonjour, {name}!",
+  "unread": "Vous avez {count, plural, =0 {aucun message} one {# message} other {# messages}}."
+}

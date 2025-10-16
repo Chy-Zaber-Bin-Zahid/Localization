@@ -1,6 +1,16 @@
-import "@/styles/globals.css";
-import type { AppProps } from "next/app";
+import React from 'react';
+import type { AppProps } from 'next/app';
+import { IntlProvider } from 'react-intl';
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+function MyApp({ Component, pageProps }: AppProps) {
+  // pageProps.messages should be loaded in getStaticProps/getServerSideProps
+  const { locale = 'en', messages = {} } = pageProps as any;
+
+  return (
+    <IntlProvider locale={locale} messages={messages} defaultLocale="en">
+      <Component {...pageProps} />
+    </IntlProvider>
+  );
 }
+
+export default MyApp;
