@@ -1,0 +1,5 @@
+{
+  "welcome": "Welcome to mPeople",
+  "greeting": "Hello, {{name}}!",
+  "language": "Current language: English"
+}
